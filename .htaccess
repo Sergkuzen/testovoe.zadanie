@@ -1,0 +1,10 @@
+DirectoryIndex server.php
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteRule ^requests(/?)+$ init_requests.php [L]
+
+php_value default_charset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml
